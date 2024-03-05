@@ -1,6 +1,13 @@
 'use client'
 
+import ThemeContext from '@/context/themeContext'
+import { useContext } from 'react'
+
+import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
+
 const Header = () => {
+  const { isDarkTheme, setIsDarkTheme } = useContext(ThemeContext)
+
   return (
     <header className="px-5 flex justify-between items-center bg-primary text-white h-14">
       <div className="flex">
@@ -9,6 +16,25 @@ const Header = () => {
         <p>1-700-12-34-56</p>
         <span>logo</span>
         <p>Activity hours</p>
+        <div>
+          {isDarkTheme ? (
+            <MdOutlineLightMode
+              className="cursor-pointer"
+              onClick={() => {
+                setIsDarkTheme(false)
+                localStorage.removeItem('hotel-theme')
+              }}
+            />
+          ) : (
+            <MdDarkMode
+              className="cursor-pointer"
+              onClick={() => {
+                setIsDarkTheme(true)
+                localStorage.setItem('hotel-theme', 'true')
+              }}
+            />
+          )}
+        </div>
       </div>
 
       <div>logo</div>
