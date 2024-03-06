@@ -4,6 +4,8 @@ import './globals.css'
 import Header from '@/cmps/Header/Header'
 import Footer from '@/cmps/Footer/Footer'
 import ThemeProvider from '@/cmps/ThemeProvider/ThemeProvider'
+import { NextAuthProvider } from '@/cmps/AuthProvider/AuthProvider'
+import Toast from '@/cmps/Toast/Toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <NextAuthProvider>
+          <ThemeProvider>
+            <Toast />
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </NextAuthProvider>
       </body>
     </html>
   )

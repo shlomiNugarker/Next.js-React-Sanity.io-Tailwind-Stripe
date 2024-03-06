@@ -18,6 +18,10 @@ const config: Config = {
       },
       colors: {
         primary: '#d91a33',
+        tertiary: {
+          dark: '#F27405',
+          light: '#F2C641',
+        },
       },
     },
   },
