@@ -1,3 +1,9 @@
+import HeroSection from '@/cmps/HeroSection/HeroSection'
+
 export default function Home() {
-  return <main className=""></main>
+  return (
+    <>
+      <HeroSection />
+    </>
+  )
 }
