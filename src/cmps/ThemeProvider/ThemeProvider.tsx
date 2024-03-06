@@ -10,7 +10,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       ? JSON.parse(localStorage.getItem('app-theme')!)
       : false
 
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(themeFromStorage)
+  const [darkTheme, setDarkTheme] = useState<boolean>(themeFromStorage)
   const [isRenderCmp, setIsRenderCmp] = useState(false)
 
   useEffect(() => {
@@ -20,8 +20,8 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   if (!isRenderCmp) return <></>
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
-      <div className={`${isDarkTheme ? 'dark' : ''} min-h-screen`}>
+    <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
+      <div className={`${darkTheme ? 'dark' : ''} min-h-screen`}>
         <div className="dark:text-white dark:bg-black text-[#1E1E1E]">
           {children}
         </div>

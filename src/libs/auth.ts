@@ -32,6 +32,7 @@ export const authOptions: NextAuthOptions = {
         }`,
         { email: userEmail }
       )
+
       return {
         ...session,
         user: {
